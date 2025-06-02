@@ -68,6 +68,8 @@ public class SeleniumTest
 
         LoginPage loginPage = mainPage.openLoginPage();
         AccountPage accountPage = loginPage.login( configReader.getEmail(), configReader.getPassword() );
+
+        Assert.assertTrue( accountPage != null );
     }
 
     @Test
@@ -78,7 +80,9 @@ public class SeleniumTest
         LoginPage loginPage = mainPage.openLoginPage();
         AccountPage accountPage = loginPage.login( configReader.getEmail(), configReader.getPassword() );
 
-        accountPage.logout();
+        MainPage mainPageAfterLogin = accountPage.logout();
+
+        Assert.assertTrue( mainPageAfterLogin != null);
     }
 
     @Test
